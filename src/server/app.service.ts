@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Story } from 'src/shared/types';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 const stories: Story[] = [
   {
@@ -21,11 +22,20 @@ const stories: Story[] = [
 
 @Injectable()
 export class AppService {
+  constructor(private prisma: PrismaService) {}
   getStories() {
     return stories;
   }
 
-  getUsers(){
-    return  stories
+  getUsers() {
+    return {};
+  }
+
+  getArticles() {
+    return {};
+  }
+
+  findAll() {
+    return this.prisma.article.findMany();
   }
 }

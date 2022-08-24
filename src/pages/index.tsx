@@ -1,6 +1,7 @@
 import type { GetServerSideProps, NextPage } from 'next';
 import { apiClient } from 'src/shared/lib/apiClient';
 import { Story } from 'src/shared/types';
+import Link from 'next/link';
 
 type HomeProps = {
   stories: Story[];
@@ -24,6 +25,9 @@ const Home: NextPage<HomeProps> = (props) => {
           </li>
         ))}
       </ul>
+      <Link href="/user">
+        <a>こちら</a>
+      </Link>
     </div>
   );
 };
