@@ -24,4 +24,8 @@ export class AppService {
   getStories() {
     return stories;
   }
+
+  getUsers(){
+    return  stories
+  }
 }
