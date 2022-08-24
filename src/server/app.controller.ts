@@ -15,4 +15,10 @@ export class AppController {
   public getStories() {
     return this.appService.getStories();
   }
+
+  @Get('users')
+  @Render('user')
+  public getUsers() {
+    return {};
+  }
 }
