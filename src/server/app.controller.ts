@@ -21,4 +21,15 @@ export class AppController {
   public getUsers() {
     return {};
   }
+
+  @Get('articles')
+  @Render('article')
+  public getArticles() {
+    return {};
+  }
+
+  @Get('/api/articles')
+  findAll() {
+    return this.appService.findAll();
+  }
 }

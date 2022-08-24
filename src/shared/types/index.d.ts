@@ -10,3 +10,11 @@ export type User = {
   email: string;
   username: string;
 };
+
+export type Article = {
+  id: string;
+  title: string;
+  description: string;
+  body: string;
+  published: boolean;
+};
