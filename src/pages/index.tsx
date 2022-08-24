@@ -28,6 +28,10 @@ const Home: NextPage<HomeProps> = (props) => {
       <Link href="/user">
         <a>こちら</a>
       </Link>
+      <br />
+      <Link href="/article">
+        <a>記事一覧へ</a>
+      </Link>
     </div>
   );
 };
