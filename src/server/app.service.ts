@@ -36,6 +36,20 @@ export class AppService {
   }
 
   findAll() {
-    return this.prisma.article.findMany();
+    return this.prisma.article.findMany({ where: { published: true } });
+  }
+
+  createData() {
+    return this.prisma.article.create({
+      data: {
+        title: '最終データ確認',
+        description: 'これで寝れます',
+        body: 'もうPOSTももう少し',
+      },
+    });
+  }
+
+  getForms() {
+    return {};
   }
 }
