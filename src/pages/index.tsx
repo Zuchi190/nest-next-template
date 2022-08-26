@@ -3,6 +3,7 @@ import { apiClient } from 'src/shared/lib/apiClient';
 import { Story } from 'src/shared/types';
 import Link from 'next/link';
 
+
 type HomeProps = {
   stories: Story[];
 };
@@ -11,6 +12,9 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
   const response = await apiClient.get<Story[]>('/api/stories');
   return { props: { stories: response.data } };
 };
+
+apiClient.post('/api/articles')
+
 
 const Home: NextPage<HomeProps> = (props) => {
   const { stories } = props;

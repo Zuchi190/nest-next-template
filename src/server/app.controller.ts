@@ -1,4 +1,4 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import { Controller, Get, Post, Render } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -9,6 +9,16 @@ export class AppController {
   @Render('index')
   home() {
     return {};
+  }
+
+  @Get('/api/articles')
+  findAll() {
+    return this.appService.findAll();
+  }
+
+  @Post('/api/articles')
+  async createArticle() {
+    return this.appService.createData();
   }
 
   @Get('/api/stories')
@@ -28,8 +38,9 @@ export class AppController {
     return {};
   }
 
-  @Get('/api/articles')
-  findAll() {
-    return this.appService.findAll();
+  @Get('form')
+  @Render('form')
+  public getForms() {
+    return {};
   }
 }
