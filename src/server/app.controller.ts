@@ -1,5 +1,6 @@
-import { Controller, Get, Post, Render } from '@nestjs/common';
+import { Controller, Get, Post, Render, Body } from '@nestjs/common';
 import { AppService } from './app.service';
+import { CreateArticleDto } from '../articles/dto/create-article.dto';
 
 @Controller()
 export class AppController {
@@ -17,13 +18,19 @@ export class AppController {
   }
 
   @Post('/api/articles')
-  async createArticle() {
-    return this.appService.createData();
+  async createdata(@Body() createArticleDto: CreateArticleDto) {
+    return this.appService.createData(createArticleDto);
   }
 
   @Get('/api/stories')
   public getStories() {
     return this.appService.getStories();
+  }
+
+  @Get('form')
+  @Render('form')
+  public getForms() {
+    return {};
   }
 
   @Get('users')
@@ -35,12 +42,6 @@ export class AppController {
   @Get('articles')
   @Render('article')
   public getArticles() {
-    return {};
-  }
-
-  @Get('form')
-  @Render('form')
-  public getForms() {
     return {};
   }
 }

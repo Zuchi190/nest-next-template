@@ -3,7 +3,6 @@ import { apiClient } from 'src/shared/lib/apiClient';
 import { Story } from 'src/shared/types';
 import Link from 'next/link';
 
-
 type HomeProps = {
   stories: Story[];
 };
@@ -13,8 +12,7 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
   return { props: { stories: response.data } };
 };
 
-apiClient.post('/api/articles')
-
+//apiClient.post('/api/articles');
 
 const Home: NextPage<HomeProps> = (props) => {
   const { stories } = props;
@@ -35,6 +33,10 @@ const Home: NextPage<HomeProps> = (props) => {
       <br />
       <Link href="/article">
         <a>記事一覧へ</a>
+      </Link>
+      <br />
+      <Link href="/form">
+        <a>記事登録へ</a>
       </Link>
     </div>
   );
