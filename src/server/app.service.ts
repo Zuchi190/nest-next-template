@@ -40,8 +40,13 @@ export class AppService {
     return {};
   }
 
+  getUpdate() {
+    return {};
+  }
+
   findAll() {
-    return this.prisma.article.findMany({ where: { published: true } });
+    // return this.prisma.article.findMany({ where: { published: true } });
+    return this.prisma.article.findMany();
   }
 
   // createData(data: any) {
@@ -56,5 +61,17 @@ export class AppService {
 
   createData(createArticleDto: CreateArticleDto) {
     return this.prisma.article.create({ data: createArticleDto });
+  }
+
+  findData(id: number) {
+    return this.prisma.article.findUnique({ where: { id } });
+  }
+
+  getPersonal() {
+    return {};
+  }
+
+  getEdit() {
+    return {};
   }
 }

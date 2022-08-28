@@ -5,7 +5,6 @@ import { apiClient } from 'src/shared/lib/apiClient';
 type Inputs = {
   title: string;
   description: string;
-  //exampleRequired: string;
   body: string;
   errors: string;
 };
@@ -36,17 +35,17 @@ export default function App() {
         {...register('title', { required: true })}
       />
       {errors.title && '文字が入力されていません'}
-      <br/>
+      <br />
       {/* include validation with required or other standard HTML validation rules */}
       <input
-         placeholder="感想"
+        placeholder="感想"
         {...register('description', { required: true })}
       />
-        {errors.description && '10文字以内でお願いします'}
-        <br/>
+      {errors.description && '10文字以内でお願いします'}
+      <br />
       <input placeholder="総括" {...register('body', { required: true })} />
       {errors.body && '総括は必須です'}
-      <br/>
+      <br />
       {/* errors will return when field validation fails  */}
       {/* {errors.exampleRequired && <span>This field is required</span>} */}
       <div>{errors.title && <span>This field is required</span>}</div>

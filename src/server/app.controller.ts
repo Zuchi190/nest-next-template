@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Render, Body } from '@nestjs/common';
+import { Controller, Get, Post, Render, Body, Param } from '@nestjs/common';
 import { AppService } from './app.service';
 import { CreateArticleDto } from '../articles/dto/create-article.dto';
 
@@ -9,6 +9,12 @@ export class AppController {
   @Get()
   @Render('index')
   home() {
+    return {};
+  }
+
+  @Get('edit')
+  @Render('edit')
+  public getEdit() {
     return {};
   }
 
@@ -33,7 +39,7 @@ export class AppController {
     return {};
   }
 
-  @Get('users')
+  @Get('user')
   @Render('user')
   public getUsers() {
     return {};
@@ -43,5 +49,23 @@ export class AppController {
   @Render('article')
   public getArticles() {
     return {};
+  }
+
+  @Get('update')
+  @Render('update')
+  public getUpdate() {
+    return {};
+  }
+
+  // @Get(':id')
+  // @Render('edit')
+  // public getEdit(){
+  //   return {};
+  // }
+
+  @Get('/edit/:id')
+  findOne(@Param('id') id: string) {
+    return this.appService.findData(+id);
+    // `This action returns a #${id} cat`;
   }
 }
