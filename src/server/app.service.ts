@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Story } from 'src/shared/types';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { CreateArticleDto } from '../articles/dto/create-article.dto';
 
 const stories: Story[] = [
   {
@@ -27,6 +28,10 @@ export class AppService {
     return stories;
   }
 
+  getForms() {
+    return {};
+  }
+
   getUsers() {
     return {};
   }
@@ -39,17 +44,17 @@ export class AppService {
     return this.prisma.article.findMany({ where: { published: true } });
   }
 
-  createData() {
-    return this.prisma.article.create({
-      data: {
-        title: '最終データ確認',
-        description: 'これで寝れます',
-        body: 'もうPOSTももう少し',
-      },
-    });
-  }
+  // createData(data: any) {
+  //   return this.prisma.article.create({
+  //     data: {
+  //       title: data.title,
+  //       description: data.description,
+  //       body: 'これはデフォルトです',
+  //     },
+  //   });
+  // }
 
-  getForms() {
-    return {};
+  createData(createArticleDto: CreateArticleDto) {
+    return this.prisma.article.create({ data: createArticleDto });
   }
 }
