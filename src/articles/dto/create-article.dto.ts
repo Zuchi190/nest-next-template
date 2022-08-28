@@ -1,7 +1,7 @@
 export class CreateArticleDto {
   title!: string;
 
-  description?: string;
+  description!: string;
 
   body!: string;
 
