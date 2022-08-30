@@ -31,7 +31,9 @@ const Update: NextPage<ArticleProps> = (props) => {
         {articles.map((article) => (
           <li key={article.id}>
             {article.id}: {article.title}: {article.description}:{article.body}
-            <Link href="/posts/${article.id}">データ編集</Link>
+            <Link as={`${article.id}`} href="[article]">
+              <a>{article.title}を編集</a>
+            </Link>
           </li>
         ))}
       </ul>
