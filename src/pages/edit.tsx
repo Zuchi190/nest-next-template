@@ -10,7 +10,7 @@ type ArticleProps = {
 export const getServerSideProps: GetServerSideProps<
   ArticleProps
 > = async () => {
-  const response = await apiClient.get<Personal[]>('/edit/2');
+  const response = await apiClient.get<Personal[]>('/edit/94');
   return { props: { article: response.data } };
 };
 
