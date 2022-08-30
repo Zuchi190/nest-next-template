@@ -74,4 +74,12 @@ export class AppService {
   getEdit() {
     return {};
   }
+
+  dynamic() {
+    return {};
+  }
+
+  dynamictt() {
+    return {};
+  }
 }

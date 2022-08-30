@@ -3,24 +3,23 @@ import { apiClient } from 'src/shared/lib/apiClient';
 import { Article } from 'src/shared/types';
 import Link from 'next/link';
 
-type Inputs = {
-    title: string;
-    description: string;
-    body: string;
-    errors: string;
-  };
+// type Inputs = {
+//   title: string;
+//   description: string;
+//   body: string;
+//   errors: string;
+// };
 
 type ArticleProps = {
   articles: Article[];
 };
 
 export const getServerSideProps: GetServerSideProps<
-    ArticleProps
+  ArticleProps
 > = async () => {
-    const response = await apiClient.get<Article[]>('/api/articles');
-    return { props: { articles: response.data } };
+  const response = await apiClient.get<Article[]>('/api/articles');
+  return { props: { articles: response.data } };
 };
-
 
 const Update: NextPage<ArticleProps> = (props) => {
   const { articles } = props;
@@ -31,7 +30,8 @@ const Update: NextPage<ArticleProps> = (props) => {
       <ul>
         {articles.map((article) => (
           <li key={article.id}>
-            {article.id}: {article.title}: {article.description}:{article.body} <Link href="/edit">更新</Link>
+            {article.id}: {article.title}: {article.description}:{article.body}
+            <Link href="/posts/${article.id}">データ編集</Link>
           </li>
         ))}
       </ul>

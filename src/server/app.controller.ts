@@ -68,4 +68,16 @@ export class AppController {
     return this.appService.findData(+id);
     // `This action returns a #${id} cat`;
   }
+
+  @Get('dynamic')
+  @Render('dynamic')
+  public dynamictt() {
+    return {};
+  }
+
+  @Get(':id')
+  @Render('[person]')
+  public dynamic() {
+    return {};
+  }
 }
