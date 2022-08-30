@@ -38,6 +38,10 @@ const Home: NextPage<HomeProps> = (props) => {
       <Link href="/form">
         <a>記事登録へ</a>
       </Link>
+      <br />
+      <Link href="/update">
+        <a>記事更新へ</a>
+      </Link>
     </div>
   );
 };
