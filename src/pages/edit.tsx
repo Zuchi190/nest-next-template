@@ -9,8 +9,9 @@ type ArticleProps = {
 
 export const getServerSideProps: GetServerSideProps<
   ArticleProps
-> = async () => {
-  const response = await apiClient.get<Personal[]>('/edit/94');
+> = async (context) => {
+  const id =context.query.keyword;
+  const response = await apiClient.get<Personal[]>(`/edit/${id}`);
   return { props: { article: response.data } };
 };
 

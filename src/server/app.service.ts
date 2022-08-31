@@ -74,4 +74,16 @@ export class AppService {
   getEdit() {
     return {};
   }
+
+  dynamic() {
+    return {};
+  }
+
+  dynamictt() {
+    return {};
+  }
+
+  remove(id: any) {
+    return this.prisma.article.delete({ where: { id } });
+  }
 }

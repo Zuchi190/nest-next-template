@@ -27,4 +27,4 @@ export type Personal = {
   published: boolean;
   createdAt: Date;
   updatedAt: Date;
-}
+};

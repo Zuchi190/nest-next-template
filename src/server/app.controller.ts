@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Render, Body, Param } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Render,
+  Body,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { AppService } from './app.service';
 import { CreateArticleDto } from '../articles/dto/create-article.dto';
 
@@ -67,5 +75,22 @@ export class AppController {
   findOne(@Param('id') id: string) {
     return this.appService.findData(+id);
     // `This action returns a #${id} cat`;
+  }
+
+  @Get('dynamic')
+  @Render('dynamic')
+  public dynamictt() {
+    return {};
+  }
+
+  @Get('/article/:id')
+  @Render('/article/[article]')
+  public dynamic() {
+    return {};
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: any) {
+    return this.appService.remove(+id);
   }
 }
