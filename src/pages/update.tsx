@@ -24,8 +24,14 @@ export const getServerSideProps: GetServerSideProps<
 };
 
 const dateDelete = async (id: string) => {
-  const url = `http://localhost:3000/delete/${id}`;
-  await apiClient.delete(url);
+  const result = window.confirm("データを削除してもよろしいでしょうか？")
+  if (result) {
+    const url = `http://localhost:3000/delete/${id}`;
+    await apiClient.delete(url);
+    location.reload()
+  } else {
+    return {};
+  }
 };
 
 const Update: NextPage<ArticleProps> = (props) => {
