@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Render, Body, Param } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Render,
+  Body,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { AppService } from './app.service';
 import { CreateArticleDto } from '../articles/dto/create-article.dto';
 
@@ -75,9 +83,14 @@ export class AppController {
     return {};
   }
 
-  @Get(':id')
-  @Render('[person]')
+  @Get('/article/:id')
+  @Render('/article/[article]')
   public dynamic() {
     return {};
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: any) {
+    return this.appService.remove(+id);
   }
 }

@@ -82,4 +82,8 @@ export class AppService {
   dynamictt() {
     return {};
   }
+
+  remove(id: any) {
+    return this.prisma.article.delete({ where: { id } });
+  }
 }
