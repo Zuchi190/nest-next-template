@@ -89,8 +89,8 @@ export class AppController {
     return {};
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: any) {
+  @Delete('/delete/:id')
+  remove(@Param('id') id: string) {
     return this.appService.remove(+id);
   }
 }

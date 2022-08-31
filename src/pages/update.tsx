@@ -2,7 +2,6 @@
 import type { GetServerSideProps, NextPage } from 'next';
 import { apiClient } from 'src/shared/lib/apiClient';
 import { Article } from 'src/shared/types';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 // type Inputs = {
 //   title: string;
@@ -25,8 +24,8 @@ export const getServerSideProps: GetServerSideProps<
 };
 
 const dateDelete = async (id: string) => {
-  console.log(id);
-  await apiClient.delete(id)
+  const url = `http://localhost:3000/delete/${id}`;
+  await apiClient.delete(url);
 };
 
 const Update: NextPage<ArticleProps> = (props) => {
