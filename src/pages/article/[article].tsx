@@ -2,6 +2,7 @@ import { GetServerSideProps, NextPage } from 'next';
 import { apiClient } from 'src/shared/lib/apiClient';
 import { Personal } from 'src/shared/types';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import Router from "next/router";
 
 type Update = {
   title: string;
@@ -41,6 +42,7 @@ const Person: NextPage<ArticleProps> = (props) => {
     console.log(
       `タイトルは${data.title}、感想は${data.description}です、本文は${data.body}です`,
     );
+    Router.push('/update');
   }
 
   return (
