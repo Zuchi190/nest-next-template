@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Story } from 'src/shared/types';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateArticleDto } from '../articles/dto/create-article.dto';
+import { UpdateArticleDto } from '../articles/dto/update-article.dto';
 
 const stories: Story[] = [
   {
@@ -90,4 +91,11 @@ export class AppService {
   testWrite(){
     return {};
   }
+
+  update(id: number, updateArticleDto: UpdateArticleDto) {
+    return this.prisma.article.update({
+      where: { id },
+      data: updateArticleDto,
+    });
+}
 }

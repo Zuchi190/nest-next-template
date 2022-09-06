@@ -6,9 +6,11 @@ import {
   Body,
   Param,
   Delete,
+  Patch,
 } from '@nestjs/common';
 import { AppService } from './app.service';
 import { CreateArticleDto } from '../articles/dto/create-article.dto';
+import { UpdateArticleDto } from '../articles/dto/update-article.dto';
 
 @Controller()
 export class AppController {
@@ -94,9 +96,8 @@ export class AppController {
     return this.appService.remove(+id);
   }
 
-  // @Get('/aa/:id')
-  // @Render('dynamic')
-  // testWrite(@Param() params: any): any {
-  //   return `This is ${params.id}`;
-  // }
+  @Patch('/update/:id')
+  update(@Param('id') id: string, @Body() updateArticleDto: UpdateArticleDto) {
+    return this.appService.update(+id, updateArticleDto);
+  }
 }

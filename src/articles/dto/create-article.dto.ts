@@ -4,6 +4,4 @@ export class CreateArticleDto {
   description!: string;
 
   body!: string;
-
-  published?: boolean = false;
 }
