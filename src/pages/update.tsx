@@ -50,6 +50,9 @@ const Update: NextPage<ArticleProps> = (props) => {
             <Link href={`/article/${article.id}`}>
               <a>{article.title}を編集</a>
             </Link>
+            <button>
+              更新
+            </button>
             <button
               onClick={() => {
                 dateDelete(article.id);
