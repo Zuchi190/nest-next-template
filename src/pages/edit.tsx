@@ -25,11 +25,12 @@ const Edit: NextPage<ArticleProps> = (props) => {
   const { article } = props;
 
   return (
-    <div>
+<div>
+
+
       <h1>データ更新</h1>
       <ul>
         {/* {articles.map((article) => (
-         
         ))} */}
          <li key={article.id}>
             ①{article.id}
