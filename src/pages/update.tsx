@@ -2,7 +2,6 @@
 import type { GetServerSideProps, NextPage } from 'next';
 import { apiClient } from 'src/shared/lib/apiClient';
 import { Article } from 'src/shared/types';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 // type Inputs = {
 //   title: string;
@@ -25,8 +24,14 @@ export const getServerSideProps: GetServerSideProps<
 };
 
 const dateDelete = async (id: string) => {
-  console.log(id);
-  await apiClient.delete(id)
+  const result = window.confirm("データを削除してもよろしいでしょうか？")
+  if (result) {
+    const url = `http://localhost:3000/delete/${id}`;
+    await apiClient.delete(url);
+    location.reload()
+  } else {
+    return {};
+  }
 };
 
 const Update: NextPage<ArticleProps> = (props) => {
@@ -45,6 +50,9 @@ const Update: NextPage<ArticleProps> = (props) => {
             <Link href={`/article/${article.id}`}>
               <a>{article.title}を編集</a>
             </Link>
+            <button>
+              更新
+            </button>
             <button
               onClick={() => {
                 dateDelete(article.id);

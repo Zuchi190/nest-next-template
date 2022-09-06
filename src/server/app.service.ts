@@ -86,4 +86,8 @@ export class AppService {
   remove(id: any) {
     return this.prisma.article.delete({ where: { id } });
   }
+
+  testWrite(){
+    return {};
+  }
 }

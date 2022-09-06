@@ -85,12 +85,18 @@ export class AppController {
 
   @Get('/article/:id')
   @Render('/article/[article]')
-  public dynamic() {
-    return {};
+  public dynamic(@Param('id') id: string) {
+    return this.appService.findData(+id);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: any) {
+  @Delete('/delete/:id')
+  remove(@Param('id') id: string) {
     return this.appService.remove(+id);
   }
+
+  // @Get('/aa/:id')
+  // @Render('dynamic')
+  // testWrite(@Param() params: any): any {
+  //   return `This is ${params.id}`;
+  // }
 }
