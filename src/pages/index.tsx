@@ -2,6 +2,7 @@ import type { GetServerSideProps, NextPage } from 'next';
 import { apiClient } from 'src/shared/lib/apiClient';
 import { Story } from 'src/shared/types';
 import Link from 'next/link';
+import Header from '../components/Header';
 
 type HomeProps = {
   stories: Story[];
@@ -19,24 +20,25 @@ const Home: NextPage<HomeProps> = (props) => {
 
   return (
     <div>
-      <h1>Home</h1>
+      <Header />
+      <h1 className="font-bold text-6xl">Home</h1>
       <ul>
         {stories.map((story) => (
-          <li key={story.id}>
+          <li className="text-yellow-600" key={story.id}>
             {story.id}: {story.title}
           </li>
         ))}
       </ul>
       <Link href="/user">
-        <a>こちら</a>
+        <a className="text-3xl font-bold underline">こちら</a>
       </Link>
       <br />
       <Link href="/article">
-        <a>記事一覧へ</a>
+        <a className="text-3xl font-bold underline">記事一覧へ</a>
       </Link>
       <br />
       <Link href="/form">
-        <a>記事登録へ</a>
+        <a className="text-yellow-600">記事登録へ</a>
       </Link>
       <br />
       <Link href="/update">
