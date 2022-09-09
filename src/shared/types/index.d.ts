@@ -9,6 +9,9 @@ export type User = {
   name: string;
   email: string;
   username: string;
+  address: {
+    city: string;
+  };
 };
 
 export type Article = {

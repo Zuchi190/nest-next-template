@@ -8,7 +8,7 @@ const stories: Story[] = [
   {
     id: 1,
     title: '国歌',
-    description: '首相が豚と…',
+    description: '首相を救出',
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const stories: Story[] = [
   {
     id: 3,
     title: '人生の軌跡のすべて',
-    description: '記憶をデータとして正確に閲覧できる世界の話',
+    description: '記憶をデータとして扱う',
   },
 ];
 

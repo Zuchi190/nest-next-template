@@ -1,6 +1,8 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { apiClient } from 'src/shared/lib/apiClient';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 type Inputs = {
   title: string;
@@ -13,7 +15,6 @@ export default function App() {
   const {
     register,
     handleSubmit,
-    watch,
     reset,
     formState: { errors },
   } = useForm<Inputs>();
@@ -25,25 +26,32 @@ export default function App() {
   };
   // watch input value by passing the name of it
 
-  console.log(watch('title'));
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <div className>
+      <Header />
+      <div className="flex justify-center py-20 px-10 bg-purple-700 min-h-screen">
+        <form  onSubmit={handleSubmit(onSubmit)}>
       {/* register your input into the hook by invoking the "register" function */}
+      <p className='mb-4 text-red-500 '>記事タイトル</p>
       <input
         placeholder="記事タイトル"
+        className='block w-full bg-transparent outline-none border-b-2 py-2 px-4  placeholder-white focus:bg-red-600'
         {...register('title', { required: true })}
       />
       {errors.title && '文字が入力されていません'}
       <br />
       {/* include validation with required or other standard HTML validation rules */}
+      <p className='mb-4 text-red-500 '>感想</p>
       <input
         placeholder="感想"
+        className='block w-full bg-transparent outline-none border-b-2 py-2 px-4  placeholder-white focus:bg-purple-600'
         {...register('description', { required: true })}
       />
       {errors.description && '10文字以内でお願いします'}
       <br />
-      <input placeholder="総括" {...register('body', { required: true })} />
+      <p className='mb-4 text-red-500 '>総括</p>
+      <input className='block w-full bg-transparent outline-none border-b-2 py-2 px-4  placeholder-purple-500 focus:bg-purple-600'placeholder="総括" {...register('body', { required: true })} />
       {errors.body && '総括は必須です'}
       <br />
       {/* errors will return when field validation fails  */}
@@ -51,5 +59,9 @@ export default function App() {
       <div>{errors.title && <span>This field is required</span>}</div>
       <input type="submit" />
     </form>
+      </div>
+    
+    <Footer />
+    </div>
   );
 }

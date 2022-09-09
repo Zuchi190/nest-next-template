@@ -8,3 +8,10 @@
     background-repeat:no-repeat;
     background-size:cover;
 }
+
+@media(max-width:576px){
+    #hero{
+    background-image:url('../../../public/images/mobile/image-hero.jpg');
+    background-position:center;
+    }
+}
