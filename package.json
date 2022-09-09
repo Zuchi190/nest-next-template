@@ -34,6 +34,10 @@
     "rxjs": "^7.2.0",
     "swagger-ui-express": "^4.5.0"
   },
+  "engines": {
+    "node":"14.17.0",
+    "npm":"7.x"
+  },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
     "@nestjs/schematics": "^9.0.0",
@@ -84,4 +88,5 @@
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
   }
+  
 }
