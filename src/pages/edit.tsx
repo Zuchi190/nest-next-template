@@ -6,7 +6,6 @@ import Link from 'next/link';
 type ArticleProps = {
   article: any;
 };
-
 export const getServerSideProps: GetServerSideProps<ArticleProps> = async (
   context,
 ) => {
