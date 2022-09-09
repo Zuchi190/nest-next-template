@@ -3,6 +3,8 @@ import type { GetServerSideProps, NextPage } from 'next';
 import { apiClient } from 'src/shared/lib/apiClient';
 import { Article } from 'src/shared/types';
 import Link from 'next/link';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 // type Inputs = {
 //   title: string;
 //   description: string;
@@ -39,39 +41,47 @@ const Update: NextPage<ArticleProps> = (props) => {
 
   return (
     <div>
-      <h1>記事一覧</h1>
-      <ul>
+      <Header />
+      <h1 className='flex justify-center text-4xl m-8'>記事一覧</h1>
+      <div className="flex justify-center">
+      <table className="table-auto max-w-screen-xl">
+        <thead>
+        <tr>
+         <th className="border px-4 py-2">記事ID</th>
+         <th className="border px-4 py-2">記事名</th>
+         <th className="border px-4 py-2">記事概要</th>
+         <th className="border px-4 py-2">記事要約</th>
+         <th className="border px-4 py-2">記事登録日</th>
+         <th className="border px-4 py-2"></th>
+         <th className="border px-4 py-2"></th>
+        </tr>
+        </thead>
+        <tbody>
         {articles.map((article) => (
-          <li key={article.id}>
-            {article.id}: {article.title}: {article.description}:{article.body}
-            {/* <Link as={`${article.id}`} href="[article]" passHref>
-              <a>{article.title}を編集</a>
-            </Link> */}
-            <Link href={`/article/${article.id}`}>
-              <a>{article.title}を編集</a>
-            </Link>
-            <button>
-              更新
-            </button>
-            <button
-              onClick={() => {
+          <tr>
+            <td className="border px-4 py-2">{article.id}</td>
+            <td className="border px-4 py-2">{article.title}</td>
+            <td className="border px-4 py-2">{article.description}</td>
+            <td className="border px-4 py-2">{article.body}</td>
+            <td className="border px-4 py-2">{article.createdAt}</td>
+            <td className="border px-4 py-2 bg-teal-400 text-blue-800"> <Link href={`/article/${article.id}`}>
+              <a>更新</a>
+            </Link></td>
+            <td className="border px-4 py-2 bg-red-400"><button onClick={() => {
                 dateDelete(article.id);
-              }}
-            >
-              削除
-            </button>
-            {/* <Link
-              href={{ pathname: '/[article]', query: { id: '2' } }}
-              passHref
-            > */}
-            {/* <a>{article.title}を編集</a>
-            </Link> */}
-          </li>
+              }}>削除</button></td>
+          </tr>
         ))}
-      </ul>
-      <Link href="/">
+      </tbody>
+      </table>
+      </div>
+      <div className='flex justify-center mt-8'>
+      <button className='p-4 bg-orange-600 text-white rounded-lg'>
+        <Link href="/">
         <a>ホームへ</a>
-      </Link>
+      </Link></button>
+      </div>
+      <Footer />
     </div>
   );
 };

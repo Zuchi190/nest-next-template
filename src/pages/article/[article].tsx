@@ -2,7 +2,9 @@ import { GetServerSideProps, NextPage } from 'next';
 import { apiClient } from 'src/shared/lib/apiClient';
 import { Personal } from 'src/shared/types';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import Router from "next/router";
+import Router from 'next/router';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 type Update = {
   title: string;
@@ -47,7 +49,7 @@ const Person: NextPage<ArticleProps> = (props) => {
 
   return (
     <div>
-      <h1>更新データページ</h1>
+      <Header/>
       
       {/* <ul>
         <li key={article.id}>
@@ -59,24 +61,36 @@ const Person: NextPage<ArticleProps> = (props) => {
           <br />⑥{article.updatedAt}
         </li>
       </ul> */}
-
+        <div className='flex justify-center bg-purple-700 text-white'>
+           <h1　className='text-4xl m-8'>更新データページ</h1>
+        </div>
+      <div className="flex justify-center py-20 px-10 bg-purple-700 min-h-screen">
       <form onSubmit={handleSubmit(onUpdate)}>
       {/* register your input into the hook by invoking the "register" function */}
-        <input defaultValue={article.title} {...register('title')} />
+      <p className="mb-4 text-white ">記事名</p>
+        <input defaultValue={article.title} {...register('title')} className="block w-full bg-transparent outline-none border-b-2 py-2 px-4  placeholder-white focus:bg-red-600"/>
         <br/>
-        <input defaultValue={article.description} {...register('description')} />
+        <p className="mb-4 text-red-white ">記事概要</p>
+        <input defaultValue={article.description} {...register('description')} className='block w-full bg-transparent outline-none border-b-2 py-2 px-4  placeholder-white focus:bg-purple-600'/>
         <br/>
-        <input defaultValue={article.body} {...register('body')} />
+        <p className="mb-4 text-red-500 ">記事要約</p>
+        <input defaultValue={article.body} {...register('body')} className='block w-full bg-transparent outline-none border-b-2 py-2 px-4  placeholder-white focus:bg-purple-600'/>
         <br/>
         {/* include validation with required or other standard HTML validation rules */}
         {/* errors will return when field validation fails  */}
       {errors.exampleRequired && <span>This field is required</span>}
        <br/>
-        <input type="submit" />
+       <div className='flex justify-center mt-4'>
+      <button className="inline-block bg-yellow-500 text-black rounded shadow py-2 px-5 text-sm mx-auto">
+          送信する
+        </button>
+        </div>
     </form>
       {/* <h1>{router.query.article}のPageです</h1> */}
       {/*routerオブジェクトでクエリストリングを取り出す */}
       {/* Hello {router.query.article} ! */}
+      <Footer />
+      </div>
     </div>
   );
 };

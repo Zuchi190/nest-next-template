@@ -28,15 +28,15 @@ export default function App() {
 
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-    <div className>
+    <div >
       <Header />
       <div className="flex justify-center py-20 px-10 bg-purple-700 min-h-screen">
-        <form  onSubmit={handleSubmit(onSubmit)}>
-      {/* register your input into the hook by invoking the "register" function */}
-      <p className='mb-4 text-red-500 '>記事タイトル</p>
-      <input
-        placeholder="記事タイトル"
-        className='block w-full bg-transparent outline-none border-b-2 py-2 px-4  placeholder-white focus:bg-red-600'
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {/* register your input into the hook by invoking the "register" function */}
+          <p className="mb-4 text-red-500 ">記事タイトル</p>
+          <input
+            placeholder="記事タイトル"
+            className="block w-full bg-transparent outline-none border-b-2 py-2 px-4  placeholder-white focus:bg-red-600"
         {...register('title', { required: true })}
       />
       {errors.title && '文字が入力されていません'}
@@ -51,13 +51,21 @@ export default function App() {
       {errors.description && '10文字以内でお願いします'}
       <br />
       <p className='mb-4 text-red-500 '>総括</p>
-      <input className='block w-full bg-transparent outline-none border-b-2 py-2 px-4  placeholder-purple-500 focus:bg-purple-600'placeholder="総括" {...register('body', { required: true })} />
+      <input className='block w-full bg-transparent outline-none border-b-2 py-2 px-4  placeholder-white focus:bg-purple-600'placeholder="総括" {...register('body', { required: true })} />
       {errors.body && '総括は必須です'}
       <br />
       {/* errors will return when field validation fails  */}
       {/* {errors.exampleRequired && <span>This field is required</span>} */}
       <div>{errors.title && <span>This field is required</span>}</div>
-      <input type="submit" />
+          {/* <input
+            type="submit"
+            value="送信する"
+            className="text-white " /> */}
+        <div className='flex justify-center mt-4'>
+      <button className="inline-block bg-yellow-500 text-black rounded shadow py-2 px-5 text-sm mx-auto">
+          送信する
+        </button>
+        </div>
     </form>
       </div>
     
