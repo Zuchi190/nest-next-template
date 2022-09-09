@@ -7,7 +7,7 @@ import { PrismaModule } from 'src/prisma/prisma.module';
 
 @Module({
   imports: [
-    RenderModule.forRootAsync(Next({ dev: true }), { viewsDir: null }),
+    RenderModule.forRootAsync(Next({ dev: false }), { viewsDir: null }),
     PrismaModule,
   ],
   controllers: [AppController],
