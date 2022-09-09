@@ -6,7 +6,7 @@ function Header() {
     <section id="hero">
       <div className="container max-w-6xl mx-auto px-6 py-8 ">
         <nav className="flex items-center justify-between font-bold text-white">
-          <img src={foo.src} alt="test" />
+          <a href="/"><img src={foo.src} alt="test" /></a>
           <div className="hidden h-10 font-alata md:flex md:space-x-8 items-center">
             <div className="group">
               <Link href="/user">
