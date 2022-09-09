@@ -7,10 +7,10 @@ type ArticleProps = {
   article: Personal[];
 };
 
-export const getServerSideProps: GetServerSideProps<
-  ArticleProps
-> = async (context) => {
-  const id =context.query.keyword;
+export const getServerSideProps: GetServerSideProps<ArticleProps> = async (
+  context,
+) => {
+  const id = context.query.keyword;
   const response = await apiClient.get<Personal[]>(`/edit/${id}`);
   return { props: { article: response.data } };
 };
@@ -25,20 +25,16 @@ const Edit: NextPage<ArticleProps> = (props) => {
   const { article } = props;
 
   return (
-<div>
-
-
+    <div>
       <h1>データ更新</h1>
       <ul>
         {/* {articles.map((article) => (
         ))} */}
-         <li key={article.id}>
-            ①{article.id}
-            <br />
-            ②{article.title}
-            <br />
-            ③{article.description}
-          </li>
+        <li key={article.id}>
+          ①{article.id}
+          <br />②{article.title}
+          <br />③{article.description}
+        </li>
       </ul>
       <Link href="/">
         <a>ホームへ</a>

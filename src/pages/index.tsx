@@ -33,11 +33,14 @@ const Home: NextPage<HomeProps> = (props) => {
         {stories.map((story) => (
           <div className="bg-blue-500" key={story.id}>
             <div className="box-border h-32 w-80 p-4 border-4 text-white flex justify-center">
-          <p>
-                ID:{story.id}<br />
-                タイトル：{story.title}<br />
-                概要：{story.description}<br />
-          </p>
+              <p>
+                ID:{story.id}
+                <br />
+                タイトル：{story.title}
+                <br />
+                概要：{story.description}
+                <br />
+              </p>
             </div>
           </div>
         ))}

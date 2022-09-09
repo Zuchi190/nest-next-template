@@ -26,38 +26,42 @@ const User: NextPage<UserProps> = (props) => {
         ユーザー一覧ページ
       </h1>
       <div className="flex justify-center">
-      <table className="table-auto ">
-        <thead>
-        <tr>
-         <th className="border px-4 py-2">ユーザーID</th>
-         <th className="border px-4 py-2">ユーザー名</th>
-         <th className="border px-4 py-2">メールアドレス</th>
-         <th className="border px-4 py-2">住所</th>
-         <th className="border px-4 py-2"></th>
-         <th className="border px-4 py-2"></th>
-        </tr>
-        </thead>
-        <tbody>
-        {users.map((user) => (
-          <tr>
-            <td className="border px-4 py-2">{user.id}</td>
-            <td className="border px-4 py-2">{user.name}</td>
-            <td className="border px-4 py-2">{user.email}</td>
-            <td className="border px-4 py-2">{user.address['city']}</td>
-            <td className="border px-4 py-2 bg-teal-400 text-blue-800"><button>更新</button></td>
-            <td className="border px-4 py-2 bg-red-400"><button>削除</button></td>
-          </tr>
-        ))}
-      </tbody>
-      </table>
+        <table className="table-auto ">
+          <thead>
+            <tr>
+              <th className="border px-4 py-2">ユーザーID</th>
+              <th className="border px-4 py-2">ユーザー名</th>
+              <th className="border px-4 py-2">メールアドレス</th>
+              <th className="border px-4 py-2">住所</th>
+              <th className="border px-4 py-2"></th>
+              <th className="border px-4 py-2"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user) => (
+              <tr>
+                <td className="border px-4 py-2">{user.id}</td>
+                <td className="border px-4 py-2">{user.name}</td>
+                <td className="border px-4 py-2">{user.email}</td>
+                <td className="border px-4 py-2">{user.address['city']}</td>
+                <td className="border px-4 py-2 bg-teal-400 text-blue-800">
+                  <button>更新</button>
+                </td>
+                <td className="border px-4 py-2 bg-red-400">
+                  <button>削除</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
-      <div className='flex justify-center mt-8'>
-      
-      <button className='p-4 bg-orange-600 text-white rounded-lg'>
-        <Link href="/">
-        <a>ホームへ</a>
-      </Link></button>
+      <div className="flex justify-center mt-8">
+        <button className="p-4 bg-orange-600 text-white rounded-lg">
+          <Link href="/">
+            <a>ホームへ</a>
+          </Link>
+        </button>
       </div>
       <Footer />
     </div>
