@@ -20,6 +20,7 @@ export type Article = {
   description: string;
   body: string;
   published: boolean;
+  createdAt: string;
 };
 
 export type Personal = {
