@@ -88,7 +88,7 @@ export class AppService {
     return this.prisma.article.delete({ where: { id } });
   }
 
-  testWrite(){
+  testWrite() {
     return {};
   }
 
@@ -97,5 +97,5 @@ export class AppService {
       where: { id },
       data: updateArticleDto,
     });
-}
+  }
 }

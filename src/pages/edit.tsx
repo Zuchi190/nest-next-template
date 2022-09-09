@@ -4,14 +4,14 @@ import { Personal } from 'src/shared/types';
 import Link from 'next/link';
 
 type ArticleProps = {
-  article: Personal[];
+  article: any;
 };
 
 export const getServerSideProps: GetServerSideProps<ArticleProps> = async (
   context,
 ) => {
   const id = context.query.keyword;
-  const response = await apiClient.get<Personal[]>(`/edit/${id}`);
+  const response = await apiClient.get<Array<Personal>>(`/edit/${id}`);
   return { props: { article: response.data } };
 };
 

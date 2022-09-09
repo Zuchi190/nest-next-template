@@ -7,7 +7,8 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 type ArticleProps = {
-  article: Personal[];
+  // article: Personal[];
+  article: any;
 };
 
 type Inputs = {

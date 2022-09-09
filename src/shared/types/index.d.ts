@@ -24,7 +24,7 @@ export type Article = {
 };
 
 export type Personal = {
-  id: number;
+  id: string;
   title: string;
   description: string;
   body: string;
